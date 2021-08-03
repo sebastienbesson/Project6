@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const userRoutes = require('./routes/user');
+
 mongoose.connect('mongodb+srv://sebastienbesson:sebastien@cluster0.7oo1s.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -18,6 +20,8 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+app.use('/api/auth', userRoutes);
 
 app.use((req, res, next) => {
   console.log('Requête reçue !');
