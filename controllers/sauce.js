@@ -7,7 +7,6 @@ exports.createThing = (req, res, next) => {
     manufacturer: req.body.manufacturer,
     description: req.body.description,
     mainPepper: req.body.mainPepper,
-    imageUrl: req.body.imageUrl,
     heat: req.body.heat
   });
   thing.save().then(
@@ -19,7 +18,7 @@ exports.createThing = (req, res, next) => {
   ).catch(
     (error) => {
       res.status(400).json({
-        error: error
+        message: 'sauce non créée!'
       });
     }
   );
