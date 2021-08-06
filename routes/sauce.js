@@ -5,10 +5,10 @@ const auth = require('../middleware/auth');
 
 const sauceCtrl = require('../controllers/sauce');
 
-router.post('/', auth, sauceCtrl.createThing);
-router.get('/', auth, sauceCtrl.getAllThings);
-router.get('/:id', auth, sauceCtrl.getOneThing);
-router.put('/:id', auth, sauceCtrl.modifyThing);
-router.delete('/:id', auth, sauceCtrl.deleteThing);
+router.post('/', auth, sauceCtrl.createSauce);
+router.get('/', auth, sauceCtrl.getAllSauces);
+router.get('/:id', auth, sauceCtrl.getOneSauce);
+router.put('/:id', auth, sauceCtrl.modifySauce);
+router.delete('/:id', auth, sauceCtrl.deleteSauce);
 
 module.exports = router;
