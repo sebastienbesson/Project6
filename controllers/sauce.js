@@ -49,3 +49,14 @@ exports.deleteSauce = (req, res, next) => {
     .catch(error => res.status(500).json({ error : 'sauce non supprimée' }));
 };
 
+exports.modifyLikes = (req, res, next) => {
+  Sauce.updateOne({ _id: req.params.id }, { ...req.like, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Like ajouté!'}))
+    .catch(error => res.status(400).json({ message: 'Like non ajouté' }));
+};
+
+exports.modifyDislikes = (req, res, next) => {
+  Sauce.updateOne({ _id: req.params.id }, { ...req.dislike, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Dislike ajouté!'}))
+    .catch(error => res.status(400).json({ message: 'Dislike non ajouté' }));
+};
